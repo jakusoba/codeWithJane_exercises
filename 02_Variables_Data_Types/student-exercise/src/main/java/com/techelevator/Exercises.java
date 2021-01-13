@@ -13,6 +13,7 @@ public class Exercises {
 		int initialNumberOfBirds = 4;
 		int birdsThatFlewAway = 1;
 		int remainingNumberOfBirds = initialNumberOfBirds - birdsThatFlewAway;
+		System.out.println("1. " + remainingNumberOfBirds);
 
         /*
         2. There are 6 birds and 3 nests. How many more birds are there than
@@ -23,45 +24,81 @@ public class Exercises {
 		int numberOfBirds = 6;
 		int numberOfNests = 3;
 		int numberOfExtraBirds = numberOfBirds - numberOfNests;
+		System.out.println("2. " + numberOfExtraBirds);
 
         /*
         3. 3 raccoons are playing in the woods. 2 go home to eat dinner. How
         many raccoons are left in the woods?
         */
-
+		int totalnumberOfRaccoons =  3;
+		int numberRacconsPlayingInTheWoods = 2; 
+		int numberRacconsLeft = totalnumberOfRaccoons -  numberRacconsPlayingInTheWoods;
+		System.out.println("3. " + numberRacconsLeft);
         /*
         4. There are 5 flowers and 3 bees. How many less bees than flowers?
         */
+		int numberOfFlowers = 5;
+		int numberOfBees = 3;
+		int numberFlowersLeft = numberOfFlowers - numberOfBees;
+		System.out.println("4. " + numberFlowersLeft );
+		
 
         /*
         5. 1 lonely pigeon was eating breadcrumbs. Another pigeon came to eat
         breadcrumbs, too. How many pigeons are eating breadcrumbs now?
         */
+		int firstPigeon = 1;
+		int secondPigeon = 1;
+		int totalNumberOfPigeons = firstPigeon + secondPigeon;
+		System.out.println("5. " +  totalNumberOfPigeons);
+		
+		
 
         /*
         6. 3 owls were sitting on the fence. 2 more owls joined them. How many
         owls are on the fence now?
         */
+		int numberOfFirstSetOwls = 3;
+		int numberOfSecondSetOwls = 2;
+		int totalnumberOfOwls = numberOfFirstSetOwls + numberOfSecondSetOwls;
+		System.out.println("6. " +  totalnumberOfOwls );
 
         /*
         7. 2 beavers were working on their home. 1 went for a swim. How many
         beavers are still working on their home?
         */
-
+		int numberOfBeaversWorkingOntheirHome = 2;
+		int numberOfBeaversWhowentSwimming = 1;
+		int numberOfBeaversStillWorkingOnTheirHome = numberOfBeaversWorkingOntheirHome - numberOfBeaversWhowentSwimming;
+		System.out.println("7. " +  numberOfBeaversStillWorkingOnTheirHome );
         /*
         8. 2 toucans are sitting on a tree limb. 1 more toucan joins them. How
         many toucans in all?
         */
-
+		int numberOftoucansSittingOnATreeLimb = 2;
+		int numberOftoucansJoining = 1;
+		int totalnumberOfToucans =  numberOftoucansSittingOnATreeLimb + numberOftoucansJoining ;
+		System.out.println("8. " + totalnumberOfToucans   );
         /*
         9. There are 4 squirrels in a tree with 2 nuts. How many more squirrels
         are there than nuts?
         */
-
+		int numberOfSquirrels = 4;
+		int numberOfNuts = 2;
+		int squirrelsLeft = numberOfSquirrels - numberOfNuts;
+		System.out.println("9. " +  squirrelsLeft );
+		
         /*
         10. Mrs. Hilt found a quarter, 1 dime, and 2 nickels. How much money did
         she find?
         */
+		int quarterInCents  = 25;
+		int dimeInCents = 10;
+		int twoNickelInCents  = 10;
+		int totalNumberOfMoney = quarterInCents  + dimeInCents + twoNickelInCents;
+		System.out.println("10. " + totalNumberOfMoney );
+		
+		
 
         /*
         11. Mrs. Hilt's favorite first grade classes are baking muffins. Mrs. Brier's
@@ -69,52 +106,103 @@ public class Exercises {
         Mrs. Flannery's class bakes 17 muffins. How many muffins does first
         grade bake in all?
         */
+		int numOfMuffinsBakedByMrsBrierClass = 18;
+		int numOfMuffinsBakedByMrsMacAdamClass = 20;
+		int numOfMuffinsBakedByMrsFlanneryClass = 17;
+		int totalNumOfMuffins = numOfMuffinsBakedByMrsBrierClass +  numOfMuffinsBakedByMrsMacAdamClass +  numOfMuffinsBakedByMrsFlanneryClass;
+		System.out.println("11. " + totalNumOfMuffins );
+		
 
         /*
         12. Mrs. Hilt bought a yoyo for 24 cents and a whistle for 14 cents. How
         much did she spend in all for the two toys?
         */
+		int priceOfYoyo = 24;
+		int priceOfWhistle = 14;
+		int priceOfBothToysInCents = priceOfYoyo + priceOfWhistle; 
+		System.out.println("12. " + priceOfBothToysInCents);
+		
+		
 
         /*
         13. Mrs. Hilt made 5 Rice Krispie Treats. She used 8 large marshmallows
         and 10 mini marshmallows.How many marshmallows did she use
         altogether?
         */
+		int numOfLargeMarshMallows = 10;
+		int numOfMiniMarshMallows = 10;
+		int totalNumOfMarshMallows = numOfLargeMarshMallows + numOfMiniMarshMallows;
+		System.out.println("13. " + totalNumOfMarshMallows);
+		
 
         /*
         14. At Mrs. Hilt's house, there was 29 inches of snow, and Brecknock
         Elementary School received 17 inches of snow. How much more snow
         did Mrs. Hilt's house have?
         */
+		int heightOfSnowAtMrsHiltHouse = 29;
+		int heightOfSnowAtBrecknockElementarySchool = 17;
+		int heightOfSnowLeftATMrsHiltHouse  = heightOfSnowAtMrsHiltHouse - heightOfSnowAtBrecknockElementarySchool;
+		System.out.println("14. " + heightOfSnowLeftATMrsHiltHouse);
+		
 
         /*
         15. Mrs. Hilt has $10. She spends $3 on a toy truck and $2 on a pencil
         case. How much money does she have left?
         */
+		int initialAmountInDollars = 10;
+		int amountOfDollarsSpentOnToyTruck = 3;
+		int amountOfDollarsSpentOnPencilCase = 2;
+		int amountOfDollarsLeft = initialAmountInDollars - (amountOfDollarsSpentOnToyTruck + amountOfDollarsSpentOnPencilCase);
+		System.out.println("15. " + amountOfDollarsLeft );
 
         /*
         16. Josh had 16 marbles in his collection. He lost 7 marbles. How many
         marbles does he have now?
         */
+		int initialAmountOfMarbles = 16;
+		int numOfMarblesLost = 7;
+		int numOfMarblesLeft =  initialAmountOfMarbles - numOfMarblesLost;
+		System.out.println("16. " + numOfMarblesLeft );
 
         /*
         17. Megan has 19 seashells. How many more seashells does she need to
         find to have 25 seashells in her collection?
         */
+		int currentNumOfSeashells = 19;
+		int requiredNumOfSeashells = 25;
+		int numOfSeashellsLeft = requiredNumOfSeashells - currentNumOfSeashells;
+		System.out.println("17. " + numOfSeashellsLeft );
+		
 
         /*
         18. Brad has 17 balloons. 8 balloons are red and the rest are green. How
         many green balloons does Brad have?
         */
+		int totalnumOfBallons = 17;
+		int numOfRedBallons = 8;
+		int numOfGreenBallons = totalnumOfBallons - numOfRedBallons;
+		System.out.println("18. " + numOfGreenBallons );
+		
 
         /*
         19. There are 38 books on the shelf. Marta put 10 more books on the shelf.
         How many books are on the shelf now?
         */
-
+		
+		int currentNumOfBooks = 38;
+		int additionalNumofBooks = 10;
+		int totalNumOfBooks = currentNumOfBooks + additionalNumofBooks ;
+		System.out.println("19. " + numOfGreenBallons);
+		
         /*
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
+		int numOfBees = 6;
+		int numOfLegsPerBees = 8;
+		int totalNumOfLegs = numOfBees * numOfLegsPerBees;
+		System.out.println("20. " + totalNumOfLegs);
+		
 
         /*
         21. Mrs. Hilt bought an ice cream cone for 99 cents. How much would 2 ice
@@ -261,6 +349,11 @@ public class Exercises {
         them in an album. If an album can contain 20 pictures, how many
         albums will she need if there are 480 pictures?
         */
+		int maxNumOfPicturesPerAlbum = 20;
+		int numOfPictures = 480;
+		int totalNumOfAlbumsNeeded = numOfPictures / maxNumOfPicturesPerAlbum;
+		System.out.println("47. " + totalNumOfAlbumsNeeded );
+		
 
         /*
         48. Joe, Susie’s brother, collected all 94 trading cards scattered in his
@@ -268,17 +361,32 @@ public class Exercises {
         cards, how many boxes were filled and how many cards are there in
         the unfilled box?
         */
+		int numOfTradingCards = 94;
+		int maxNumOfCardsInABox = 8;
+		int numOfFilledBoxes = numOfTradingCards / maxNumOfCardsInABox;
+		int numOfCardsInUnfilledBox = numOfTradingCards % maxNumOfCardsInABox;
+		System.out.println("48. " + numOfFilledBoxes  + ", " + numOfCardsInUnfilledBox);
+		
 
         /*
         49. Susie’s father repaired the bookshelves in the reading room. If he has
         210 books to be distributed equally on the 10 shelves he repaired,
         how many books will each shelf contain?
         */
+		int numOfBooks = 210;
+		int numOfShelves = 10;
+		int numOfBooksPerShelf = numOfBooks / numOfShelves;
+		System.out.println("49. " + numOfBooksPerShelf);
 
         /*
         50. Cristina baked 17 croissants. If she planned to serve this equally to
         her seven guests, how many will each have?
         */
+		double numOfCroissantsBaked = 17;
+		double numOfGuests = 7;
+		double numOfCroissantPerGuest = numOfCroissantsBaked / numOfGuests;
+		System.out.println("50. " + numOfCroissantPerGuest );
+		
 
         /*
             CHALLENGE PROBLEMS
