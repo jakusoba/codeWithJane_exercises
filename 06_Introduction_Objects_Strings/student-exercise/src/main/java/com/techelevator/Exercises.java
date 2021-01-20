@@ -9,9 +9,9 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 	public String helloName(String name) {
-		String Hello = "";
 		
-		return (Hello + name + "!");
+		
+		return ("Hello " + name + "!");
 	}
 
 	/*
@@ -284,11 +284,11 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
-		String s= " ";
+		String result = " ";
 		for (int i = 0; i < n; i++) {
-			s += str;
+			result += str;
 		}
-		return s;
+		return result;
 		
 		
 	}
@@ -301,19 +301,16 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		String initialLetters = "";
-		if (str.length() > 3) {
-			initialLetters = str.substring(0, 3);
-		} else {
-			initialLetters = str.substring(0);
+		int frontString = 3;
+		if(frontString >  str.length()) {
+			frontString = str.length();
+			
 		}
-		
-		String initialLettersCopied = " ";
-		for (int i = 0; i < n; i++) {
-			initialLettersCopied += initialLetters;
+		String result = " ";
+		for(int i = 0; i < n; i++) {
+			result += str.substring(0,  frontString);
 		}
-	
-		return initialLettersCopied;
+		return result;
 		
 	}
 
@@ -324,7 +321,14 @@ public class Exercises {
 	 countXX("xxxx") →
 	 */
 	public int countXX(String str) {
-		return 0;
+		int count = 0;
+		for(int i = 0; i < str.length() - 1; i++) {
+			if(str.substring(i, i + 2).equalsIgnoreCase("xx")) {
+				count += 1;
+			}
+			
+		}
+		return count;
 	}
 
 	/*
@@ -334,7 +338,20 @@ public class Exercises {
 	 doubleX("xxxxx") → true
 	 */
 	public boolean doubleX(String str) {
+		if (str.equals("xx")) {
+			return true;
+		}
+		for (int i = 1; i < str.length() -1; i++) {
+			if (str.charAt(i-1) == 'x') {
+				if (str.charAt(i) == 'x'){
+						return true;
+				} else {
+					return false;
+				}
+			}
+		}
 		return false;
+		
 	}
 
 	/*
@@ -344,7 +361,13 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+		String result = " ";
+		for (int i = 0; i < str.length(); i=+2) {
+			result = str.substring(i, i + 1);
+		}
+		return result;
+		
+	
 	}
 
 	/*
@@ -354,7 +377,13 @@ public class Exercises {
 	 stringSplosion("ab") → "aab"
 	 */
 	public String stringSplosion(String str) {
-		return null;
+		String result = " ";
+		for (int i = 0; i <= str.length(); i++) {
+			result += str.substring(0, i);
+		}
+		return result;
+		
+		
 	}
 
 	/*
@@ -365,7 +394,22 @@ public class Exercises {
 	 last2("axxxaaxx") → 2
 	 */
 	public int last2(String str) {
-		return 0;
+
+		if(str.length() < 2) {
+		
+			return 0;
+		}
+		String lastTwoChars = str.substring(str.length() - 2);
+		int count = 0;
+		for(int i = 0; i < str.length() - 2; i++) {
+			if(str.substring(i, i + 2).contentEquals(lastTwoChars)) {
+				count++;
+				
+			}
+		}
+		return count;
+		
+	
 	}
 
 	/*
@@ -376,8 +420,19 @@ public class Exercises {
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
 	public String stringX(String str) {
-		return null;
-	}
+		if (str.length() < 2) {
+			return str;
+		}
+		String newVersion = str.replaceAll("x", "");
+		if (str.charAt(0) == 'x') {
+			newVersion = "x" + newVersion;
+		}
+		if (str.charAt(str.length() - 1) == 'x') {
+			newVersion += "x";
+		}
+		return newVersion;
+		
+	}		
 
 	/*
 	 Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
@@ -385,8 +440,16 @@ public class Exercises {
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
 	 */
+
 	public String altPairs(String str) {
-		return null;
+		String result = " ";
+		for(int i = 0; i < str.length(); i++) {
+			result = result + str.charAt(i);
+			if(i%2 == 1) {
+				i += 2;
+			}	
+		}
+		return result;
 	}
 
 	/*
