@@ -298,7 +298,7 @@ public class ExercisesTest {
 		assertThat("wordMultiple([\"a\", \"b\", \"a\", \"c\", \"b\"])", output, hasEntry("c", false));
 		assertThat("wordMultiple([\"a\", \"b\", \"a\", \"c\", \"b\"])", output, hasEntry("a", true));
 
-		exercises.wordMultiple(new String[] { "c", "b", "a" });
+		output = exercises.wordMultiple(new String[] { "c", "b", "a" });
 		assertThat("wordMultiple([\"c\", \"b\", \"a\"])", output, hasEntry("b", false));
 		assertThat("wordMultiple([\"c\", \"b\", \"a\"])", output, hasEntry("c", false));
 		assertThat("wordMultiple([\"c\", \"b\", \"a\"])", output, hasEntry("a", false));
