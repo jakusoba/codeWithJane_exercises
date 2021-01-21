@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +17,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		List<String>myNewList = new ArrayList<String>();
+		for(String fruit: stringArray) {
+			myNewList.add(fruit);
+		}	
+		return myNewList;
 	}
 
 	/*
@@ -26,7 +31,11 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+		String [] myArray = new String [stringList.size()];
+		for(int i = 0; i < stringList.size(); i++) {
+			myArray[i] = stringList.get(i);
+		}
+		return myArray;
 	}
 
 	/*
@@ -37,7 +46,16 @@ public class Exercises {
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+		List<String> myNewArrayList = new ArrayList<String>();
+		for(String s: stringArray) {
+			if(s.length() > 4) {
+				myNewArrayList.add(s);
+			}
+			else if(s.length() < 4) {
+				myNewArrayList.add(s);
+			}
+		}
+		return myNewArrayList;
 	}
 
 	/*
@@ -47,7 +65,12 @@ public class Exercises {
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
 	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+		List<Double> myNewArrayList = new ArrayList<Double>();
+		for (double num : intArray) {
+			myNewArrayList.add(num/2);
+		}
+		return myNewArrayList;
+	
 	}
 
 	/*
@@ -57,7 +80,8 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 64362
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
+		return Collections.max(integerList);
+		
 	}
 
 	/*
@@ -67,7 +91,14 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> myNewArrayList = new ArrayList<>();
+		for (Integer num : integerArray) {
+			if (num % 2 != 0) {
+				myNewArrayList.add(num);
+			}
+		}
+		return myNewArrayList;
+		
 	}
 
 	/*
@@ -78,7 +109,14 @@ public class Exercises {
 	 foundIntTwice( [9, 23, 44, 2, 88, 44], 44) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		return false;
+		
+		int count = 0;
+		for (int num : integerList) {
+			if (num == intToFind) {
+				count += 1;
+			}
+		}
+		return (count > 1);
 	}
 
 	/*
@@ -95,7 +133,23 @@ public class Exercises {
 	 equals "1")
 	 */
 	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+		List<String> myNewArrayList = new ArrayList<String>();
+		for(Integer num: integerArray) {
+			
+				if(num % 3 == 0 && num % 5 == 0) {
+					myNewArrayList.add("FizzBuzz");
+				} else if (num % 3 == 0) {
+					myNewArrayList.add("Fizz");
+				} else if (num % 5 == 0) {
+					myNewArrayList.add("Buzz");
+				} else {
+					myNewArrayList.add(Integer.toString(num));
+				}
+			
+				
+		
+		}
+		return myNewArrayList;
 	}
 
 	/*
@@ -106,7 +160,17 @@ public class Exercises {
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
 	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
-	}
-
-}
+		List<Integer>listThree = new ArrayList<Integer>();
+		for(int i = 0; i < Math.max(listOne.size(), listTwo.size()); i++){
+			if(i < listOne.size()) {
+				listThree.add(listOne.get(i));
+			}
+			if(i < listTwo.size()) {
+				listThree.add(listTwo.get(i));
+			}
+			
+		}	
+			
+		return listThree;
+	}	
+}	
