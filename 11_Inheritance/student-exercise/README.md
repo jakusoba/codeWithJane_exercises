@@ -61,8 +61,8 @@ A `CheckingAccount` "is-a" `BankAccount`, but it also has some additional rules:
 
 | Override Method | Description                                                                                                                                                          |
 | --------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Withdraw        | If the balance falls below $0.00 and is less than -$100.00, a $10.00 overdraft fee is also charged against the account.                                                                            |
-|        | Checking account can't be overdrawn by $100.00 or more. 
+| Withdraw If the balance falls below $0.00 and is less than -$100.00, a $10.00 overdraft fee is also charged against the account.                                                                            |
+|         Checking account can't be overdrawn by $100.00 or more. 
 If a withdrawal request leaves the account $100 or more overdrawn, it fails and the balance remains the same.<br><br> 
 For example, if the current balance is -$89.00, and the amount to withdraw is $10.00, the resulting balance is -$99.00. 
 The withdraw is permitted since the new balance is less than -$100.00. 
