@@ -213,7 +213,6 @@ public class ExercisesTest {
 		assertEquals("Input: lucky13(new int[]{1, 2, 3})", false, exercises.lucky13(new int[] { 1, 2, 3 }));
 		assertEquals("Input: lucky13(new int[]{1, 2, 4})", false, exercises.lucky13(new int[] { 1, 2, 4 }));
 		assertEquals("Input: lucky13(new int[]{5, 2, 3})", false, exercises.lucky13(new int[] { 5, 2, 3 }));
-
 		assertEquals("Input: lucky13(new int[]{2, 1, 0})", false, exercises.lucky13(new int[] { 2, 1, 0 }));
 		assertEquals("Input: lucky13(new int[]{2, 3, 0})", false, exercises.lucky13(new int[] { 2, 3, 0 }));
 		assertEquals("Input: lucky13(new int[]{2, 4, 1})", false, exercises.lucky13(new int[] { 2, 4, 1 }));
