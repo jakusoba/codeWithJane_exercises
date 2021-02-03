@@ -1,0 +1,3 @@
+MLS#5567,555,Main Street,Columbus,Ohio,43225,4,2,This house was once used in the movie Joe Dirt,150000.00,S
+MLS#73251,998,Maple Street,Dublin,Ohio,43017,3,1,This house has a picket fence and a nice yard for your dog,750000.00,S
+MLS#73251,1523,Hollywood Blvd,Hollywood,California,90210,8,4.5,Large mansion but the neighbors are annoying and trees are infested with tree rats,9900000.00,R,12
