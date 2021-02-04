@@ -1,0 +1,20 @@
+
+*** Each record in the inventory.txt file has the following layout (separated by commas)
+
+Index: 0  -  MLS Number
+Index: 1  -  Street Number
+Index: 2  -  Street Name
+Index: 3  -  City
+Index: 4  -  State
+Index: 5  -  Zip Code
+Index: 6  -  Number of Bedrooms
+Index: 7  -  Number of Bathrooms
+Index: 8  -  Short Description
+Index: 9  -  Price
+Index: 10 -  Single(S) or Rental(R)
+
+
+if (rental (R)) {
+  Index 11:  -   Rental Term in months will be at the end
+|
+
