@@ -88,10 +88,12 @@ WHERE countrycode = 'USA'
 GROUP BY district
 ORDER BY district;
 
--- SUBQUERIES
--- Find the names of cities under a given government leader
+-- SUBQUERIES 
 
--- Find the names of cities whose country they belong to has not declared independence yet
+SELECT * FROM city WHERE countrycode IN ('GBR', 'ITA', 'FRA', 'DEU');
+
+SELECT * FROM city 
+WHERE countrycode IN (SELECT code FROM COUNTRY WHERE continent = 'Europe' AND gnp > 1000000);
 
 -- Additional samples
 -- You may alias column and table names to be more descriptive
