@@ -83,7 +83,6 @@ public class HotelController {
      * @param reservation
      * @param hotelID
      */
-    @ResponseStatus(HttpStatus.CREATED)
     @RequestMapping(path = "/hotels/{id}/reservations", method = RequestMethod.POST)
     public Reservation addReservation(@RequestBody Reservation reservation, @PathVariable("id") int hotelID)
             throws HotelNotFoundException {
