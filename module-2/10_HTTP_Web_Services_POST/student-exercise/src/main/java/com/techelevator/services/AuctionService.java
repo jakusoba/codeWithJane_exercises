@@ -3,6 +3,7 @@ package com.techelevator.services;
 
 
 import com.techelevator.models.Auction;
+
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
@@ -73,15 +74,15 @@ public class AuctionService {
     public Auction add(String auctionString) {
       
     	Auction auction = makeAuction(auctionString);
-    	if (auction == null)
-    			return null;
-    
+    	
     	try {
-    	      auction = restTemplate.postForObject(API_URL, auctionService.makeEntity(auction), Auction.class);
+    	      auction = restTemplate.postForObject(API_URL, makeEntity(auction), Auction.class);
     	    } catch (RestClientResponseException ex) {
     	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    	      return null;
     	    } catch (ResourceAccessException ex) {
     	      console.printError(ex.getMessage());
+    	      return null;
     	    }
     	    return auction;
     }
@@ -89,17 +90,18 @@ public class AuctionService {
     //PUT: http://localhost:3000/auctions/{id}	
     public Auction update(String auctionString) {
     	Auction auction = makeAuction(auctionString);
-    	if(auction == null )
-    		return null;
     	try {
-    		//estTemplate.put(BASE_URL + "reservations/" + reservation.getId(), entity);
-    		restTemplate.put(API_URL + "/" + auction.getId(), auctionService.makeEntity(auction));
+    		
+    		restTemplate.put(API_URL + "/" + auction.getId(), makeEntity(auction));
+    		
     	}
     	catch(RestClientResponseException ex) {
-    		  console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());	
+    		  console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    		  return null;
     	}
     	catch(ResourceAccessException ex) {
     		console.printError(ex.getMessage());
+    		return null;
     	}
     	return auction;
     }
@@ -109,9 +111,13 @@ public class AuctionService {
     	try {
     	      restTemplate.delete(API_URL + id);
     	    } catch (RestClientResponseException ex) {
+    	  
     	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
+    	      return false;
+    	      
     	    } catch (ResourceAccessException ex) {
     	      console.printError(ex.getMessage());
+    	      return false;
     	    }
     	return true; 
     }
