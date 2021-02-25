@@ -20,7 +20,7 @@ public class AuctionService {
 
     public RestTemplate restTemplate = new RestTemplate();
     private final ConsoleService console = new ConsoleService();
-    AuctionService auctionService = new AuctionService();
+    //AuctionService auctionService = new AuctionService();
 
     public Auction[] listAllAuctions() {
         Auction[] auctions = null;
@@ -109,7 +109,7 @@ public class AuctionService {
     //DELETE: http://localhost:3000/auctions/{id}
     public boolean delete(int id) {
     	try {
-    	      restTemplate.delete(API_URL + id);
+    	      restTemplate.delete(API_URL + "/"+ id);
     	    } catch (RestClientResponseException ex) {
     	  
     	      console.printError(ex.getRawStatusCode() + " : " + ex.getStatusText());
