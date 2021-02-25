@@ -1,13 +1,17 @@
 package com.techelevator.services;
 
+
 import com.techelevator.models.Location;
 import org.springframework.http.HttpEntity;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.MediaType;
+
 import org.springframework.web.client.RestClientResponseException;
 import org.springframework.web.client.RestTemplate;
 
+import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 
 public class LocationService {
 
@@ -40,6 +44,7 @@ public class LocationService {
     public Location update(String CSV) {
         // api code here
         return null;
+        
     }
 
     private HttpEntity<Location> makeEntity(Location location){
@@ -68,5 +73,16 @@ public class LocationService {
         return new Location(Integer.parseInt(parsed[0].trim()), parsed[1].trim(), parsed[2].trim(), parsed[3].trim(), parsed[4].trim(), parsed[5].trim());
     }
 
-
+    /**@Override
+	public List<VenueSpace> getAllSpaces() {
+		// TODO Auto-generated method stub
+		List<VenueSpace>listOfSpaces = new ArrayList<VenueSpace>();
+		String selectStatement = "SELECT venue_id,id, name, is_accessible, open_from, open_to, daily_rate::numeric::integer, max_occupancy FROM space";
+		SqlRowSet results = jdbcTemplate.queryForRowSet(selectStatement);
+		while(results.next()) {
+			VenueSpace venueSpace = mapRowToVenueSpace(results);
+			listOfSpaces.add(venueSpace);
+		}
+		return listOfSpaces;
+	}**/
 }
