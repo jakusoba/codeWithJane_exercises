@@ -3,13 +3,21 @@ package com.techelevator.auctions.model;
 import javax.validation.constraints.DecimalMin;
 import javax.validation.constraints.Min;
 import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Positive;
 
 public class Auction {
 
-    private int id;
+    private int id; 
+    @NotBlank(message="The field `title` should not be blank.")
     private String title;
-    private String description;
-    private String user;
+    
+    @NotBlank(message="The field `description` should not be blank.")
+    private String description; 
+    
+    @NotBlank(message="The field `user` should not be blank.")
+    private String user;  
+    
+    @Min(value = 1, message="The field `current bid` should be greater than 0." )
     private double currentBid;
 
     public Auction() {
@@ -79,4 +87,21 @@ public class Auction {
         return "Auction{" + "id=" + id + ", title='" + title + '\'' + ", description='" + description + '\''
                 + ", user='" + user + '\'' + ", currentBid=" + currentBid + '}';
     }
+    
+    /*title
+    rule: Not Blank
+    message: "The field title should not be blank."
+    description
+    rule: Not Blank
+    message: "The field description should not be blank."
+    user
+    rule: Not Blank
+    message: "The field user should not be blank."
+    currentBid
+    rule: Min 1
+    "The field current bid should be greater than 0."
+    current bid is a double, so you can't use the rule @Min().
+    @Positive might be an annotation to look at.
+    Afterwards, run the unit tests in src/test/java/com/techelevator/auctions/model/AuctionValidationTest.java to verify that you have the correct validations in place.**/
 }
+
