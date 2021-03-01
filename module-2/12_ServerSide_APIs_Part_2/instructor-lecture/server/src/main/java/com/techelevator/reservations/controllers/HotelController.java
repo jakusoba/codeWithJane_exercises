@@ -90,7 +90,7 @@ public class HotelController {
         return reservationDAO.create(reservation, hotelID);
     }
     
-    
+    @ResponseStatus(HttpStatus.NO_CONTENT)
     @RequestMapping(path = "/reservations/{id}", method = RequestMethod.PUT)
     public Reservation update(@Valid @RequestBody Reservation reservation, @PathVariable int id) throws ReservationNotFoundException {
         return reservationDAO.update(reservation, id);

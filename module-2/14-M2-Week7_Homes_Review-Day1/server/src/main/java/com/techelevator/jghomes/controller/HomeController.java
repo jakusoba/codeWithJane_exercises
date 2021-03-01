@@ -1,15 +1,24 @@
 package com.techelevator.jghomes.controller;
 
+import java.security.Principal;
 import java.util.List;
 
+import javax.validation.Valid;
+
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.techelevator.jghomes.dao.HomeDAO;
+import com.techelevator.jghomes.exception.HomeNotFoundException;
 import com.techelevator.jghomes.model.Home;
+
 
 /*   
      DAO methods for reference:
@@ -18,17 +27,56 @@ import com.techelevator.jghomes.model.Home;
     	void addHome(Home home);
     	Home retrieveHomeByMLSId(String mlsId);
     	boolean deleteHome(String mlsId);
-
  */
 
-
+@PreAuthorize("isAuthenticated()")
+@RestController
 public class HomeController {
+	private HomeDAO homeDAO;
+	public HomeController(HomeDAO homeDAO) {
+		this.homeDAO = homeDAO;
+	}
 	
-    /**
-     * Return all homes
-     *
-     * @return List<Home>  -  a list of all homes in the system
-     */
+	@PreAuthorize("permitAll")
+	@RequestMapping(path = "/homes", method = RequestMethod.GET)
+     public List<Home>list() {
+		return homeDAO.retrieveHomesForSale();
+	}
+	
+	@RequestMapping(path = "/homes/{mlsId}", method = RequestMethod.GET)
+	public Home retrieveById(@PathVariable String mlsId) throws HomeNotFoundException {
+		Home home = homeDAO.retrieveHomeByMLSId(mlsId);
+		if(home == null) {
+			throw new HomeNotFoundException();
+		}	
+		return home;
+	}
+	
+	@ResponseStatus(HttpStatus.CREATED)
+    @RequestMapping( path = "/homes", method = RequestMethod.POST)
+    public void addHome(@Valid @RequestBody Home home, Principal principal) throws HomeNotFoundException {
+        homeDAO.addHome(home);
+        auditLog("add", principal.getName());
+    }
+	
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	@RequestMapping(path = "/homes/{mlsId}", method = RequestMethod.DELETE)
+    public void delete(@PathVariable String mlsId,Principal principal) throws HomeNotFoundException {
+		
+        if( !homeDAO.deleteHome(mlsId)) {
+        	throw new HomeNotFoundException();
+        	
+        }
+        auditLog("delete", principal.getName());
+    }
+	
+	private void auditLog(String operation, String username) {
+        System.out.println("User: " + username + " performed the operation: " + operation );
+    }
+
+	
+	
+     
 	//TODO:  Class exercise #1 - Implement a controller method to return all homes for sale
 	//       You are done when you are able to successfully test using postman	
 	
