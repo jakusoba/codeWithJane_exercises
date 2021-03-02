@@ -102,7 +102,7 @@ public class Solution_Dont_Look_At_Me {
 	    //create HTTP header so we can set application/json AND AUTH_TOKEN
 	    HttpHeaders headers = new HttpHeaders();
 	    headers.setContentType(MediaType.APPLICATION_JSON);
-	    headers.setBearerAuth(AUTH_TOKEN);
+	    headers.setBearerAuth(AUTH_TOKEN);	
 	    
 	    //build and entity object so the header gets added
 	    HttpEntity<Home> entity = new HttpEntity<>(headers);		
