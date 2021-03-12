@@ -114,11 +114,13 @@ The `@media` styles looks like this:
 
 ```css
 @media screen and (max-width: 800px) {
+    
+}    
     body {
         grid-template-columns: 100%;
         justify-items: center;
     }
-}
+
 ```
 
 Make sure the browser window is less than `800px` wide. Now when you scroll down the page, you'll see the menu followed by the main content area, and then the right column content, all thanks to these two CSS styles.
