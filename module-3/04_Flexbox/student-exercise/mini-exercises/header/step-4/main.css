@@ -38,8 +38,57 @@ li a:hover {
   text-decoration: underline;
 }
 
-.spacer {}
+
 
 .my-account img {
   width: 32px;
 }
+nav > ul { 
+
+  display: flex; 
+  
+  } 
+  ul { 
+  
+  flex-direction: column; 
+  
+  } 
+  
+   
+   
+  
+  /* Centering Content Horizontally */ 
+  
+  ul { 
+  
+  align-items: center; 
+  
+  } 
+  
+   
+   
+  
+  ul { 
+  
+  justify-content: center; 
+  
+  } 
+  
+   
+   
+  
+  ul  { 
+  
+  justify-content: center; 
+  
+  } 
+  ul > li{ 
+
+    flex-wrap: wrap; 
+    
+    } 
+  
+   
+  
+  
+

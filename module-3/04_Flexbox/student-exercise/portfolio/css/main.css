@@ -3,22 +3,33 @@ body {
   padding: 0;
   min-height: 100vh;
   /* Photo by Andre Furtado on Unsplash */
+  display:flex;
+  flex-direction: column; 
+  
   background: url(../img/andre-furtado-JtV6zyOZSrA-unsplash.jpg) left / cover no-repeat;
 }
 
+
 #left-panel {
   background-color: #F7F7F7;
+  display: flex;
 }
 
 ul.social-icons {
   list-style-type: none;
   margin: 20px 20px;
   padding: 0;
+  justify-content: space-between; 
 }
 
-nav {}
+nav {
+  flex-grow: initial;
+}
 
-#right-panel {}
+#right-panel {
+  align-items: center; 
+  justify-content: center; 
+}
 
 /* YOU WON'T NEED TO CHANGE ANY STYLES BELOW THIS LINE */
 

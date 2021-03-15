@@ -41,3 +41,51 @@ a:hover {
   color: #00AFEF;
   text-decoration: underline;
 }
+nav > ul { 
+
+  display: flex; 
+  
+  } 
+  ul { 
+  
+  flex-direction: column; 
+  
+  } 
+  
+   
+   
+  
+  /* Centering Content Horizontally */ 
+  
+  ul { 
+  
+  align-items: center; 
+  
+  } 
+  
+   
+   
+  
+  ul { 
+  
+  justify-content: center; 
+  
+  } 
+  
+   
+   
+  
+  ul  { 
+  
+  justify-content: center; 
+  
+  } 
+  ul > li{ 
+
+    flex-wrap: wrap; 
+    
+    } 
+  
+   
+  
+  
