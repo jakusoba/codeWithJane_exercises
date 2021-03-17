@@ -77,6 +77,14 @@
 		oddOnly([1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]) → [1, 3, 5, 7, 9, 11];
 		oddOnly([2, 4, 8, 32, 256]); → []
 */
+function oddOnly(array1) {
+    var array2 = [];
+    for (var i = 0; i < array1.length ; i++) {
+        if (array1[i] % 2 == 1){
+            array2.push(array1[i]);
+        } 
+	}
+}	
 
 /*
 6. **frontAgain** Given a string, return true if the first 2 chars in the string also appear 
@@ -86,6 +94,17 @@
 		frontAgain("edit") → false
 		frontAgain("ed") → true
 */
+function frontAgain(test){
+    var length = 2;
+    var positionBeg = test.slice(0,2);
+    var positionEnd = test.slice(test.length -2,test.length);
+    if ( positionBeg == positionEnd) {
+        return true
+    } else {
+        return false; 
+    }
+}
+
 
 /*
 7. **cigarParty** When squirrels get together for a party, they like to have cigars. 
@@ -98,6 +117,13 @@ or false otherwise.
 		cigarParty(50, false) → true
 		cigarParty(70, true) → true
 */
+function cigarParty(number, weekend) {
+    if ((number > 39 && number < 61 && weekend == false) || (number > 39 && weekend == true)) {
+        return true;
+    } else {
+        return false;
+    }
+}
 
 /*
 8. **fizzBuzz** Because you know you can't live without it, FizzBuzz.
@@ -108,6 +134,17 @@ or false otherwise.
 		fizzBuzz(15) → "FizzBuzz"
 		fizzBuzz(8) → 8
 */
+function fizzBuzz(a) {
+    if (a % 15 == 0) {
+        return "FizzBuzz";
+    } else if (a % 5 == 0){
+        return "Buzz";
+    } else if (a % 3 == 0){
+        return "Fizz";
+    } else {
+        return a;
+    }
+}
 
 /*
 9. **filterEvens** Write a function that filters an array to only include even numbers.
