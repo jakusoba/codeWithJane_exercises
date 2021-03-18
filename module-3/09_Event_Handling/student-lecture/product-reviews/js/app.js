@@ -91,6 +91,7 @@ function exitDescriptionEdit(textBox, save) {
   let desc = textBox.previousElementSibling;
   if (save) {
     desc.innerText = textBox.value;
+    description = textBox.value;
   }
   textBox.classList.add('d-none');
   desc.classList.remove('d-none');
