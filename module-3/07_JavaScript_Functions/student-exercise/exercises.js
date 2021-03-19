@@ -105,9 +105,9 @@ function makeHappy(words) {
  */
 function getFullAddressesOfProperties(association) {
 
-    return association.map( (address) => {
-      return '${streetNumber} ${streetName} ${streetType} ${city} ${state} ${zip}';
-    });
+  return association.map( (address) => {
+    return '${streetNumber} ${streetName} ${streetType} ${city} ${state} ${zip}';
+  });
 }  
 
 
