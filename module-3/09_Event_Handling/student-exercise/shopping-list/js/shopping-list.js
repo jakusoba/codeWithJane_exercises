@@ -36,6 +36,32 @@ function displayGroceries() {
     ul.appendChild(li);
   });
 }
+document.addEventListener('DomContentLoaded', (event)=> {
+  setPageTitle();
+  displayGroceries();
+  const items = document.querySelectorAll('li');
 
-setPageTitle();
-displayGroceries();
+    items.forEach((item) => {
+        item.addEventListener('click', () => {
+            if (!item.classList.contains('completed')) {
+                item.classList.add('completed');
+                item.querySelector('i').classList.add('completed');
+            }
+        });
+      
+      item.addEventListener('dblclick', () => {
+        if(item.classList.contains('completed')) {
+          item.classList.remove('completed');
+          item.querySelector('i').classList.remove('completed')
+        }
+      });
+    });
+    
+  const completeAll = document.getElementById('btnCompleteAll');
+  completeAll.addEventListener('click', () => {
+    items.forEach((item) => {
+      item.classList.add('completed');
+      item.querySelector('i').classList.add('completed');
+    });
+  });
+});

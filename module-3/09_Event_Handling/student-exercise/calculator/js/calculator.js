@@ -72,12 +72,45 @@ function clear() {
 }
 
 // add event listener for when the DOM is loaded
-document.addEventListener('LOADED_EVENT_GOES_HERE', () => {
+document.addEventListener('DOMContentLoaded', (event) => {
 
   // set the variable called display equal to the display element
   // HINT: use its id #display to get a reference to it
-
+  display = document.getElementById('display');
+  
   // get a reference to all of the numbers
+ 
+  numbers = document.querySelectorAll('.number');
+  for(let i = 0; i < numbers.length; i++){
+    numbers[i].addEventListener('click', (event) => {
+      clickNumber(event);
+    });
+    
+  }
+  let decimal = document.querySelector('.decimal');
+  decimal.addEventListener('click', (event) => {
+    clickNumber(event)
+  });
+  
+ let allClear = document.querySelector('.all-clear');
+ allClear.addEventListener('click', (event) => {
+   clear();
+ });
+
+  let operator = [];
+  operator = document.querySelectorAll('.operator');
+  for(let i = 0; i < operator.length; i++){
+    operator[i].addEventListener('click', (event)=>{
+      clickOperator(event);
+    });
+  }
+  let equal = document.querySelector('.equal-sign');
+  equal.addEventListener('click', (event) =>{
+    performOperation();
+  });
+
+
+  
   // loop over each of the numbers
   // add a click event listener to each number to call the function clickNumber
 
