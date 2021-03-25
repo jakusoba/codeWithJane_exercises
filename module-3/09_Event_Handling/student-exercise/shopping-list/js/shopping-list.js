@@ -26,42 +26,48 @@ function setPageTitle() {
  * This function will loop over the array of groceries that was set above and add them to the DOM.
  */
 function displayGroceries() {
-  const ul = document.querySelector('ul');
-  groceries.forEach((item) => {
-    const li = document.createElement('li');
-    li.innerText = item.name;
-    const checkCircle = document.createElement('i');
-    checkCircle.setAttribute('class', 'far fa-check-circle');
-    li.appendChild(checkCircle);
-    ul.appendChild(li);
-  });
-}
-document.addEventListener('DomContentLoaded', (event)=> {
-  setPageTitle();
-  displayGroceries();
-  const items = document.querySelectorAll('li');
+  const list = document.querySelector('.shopping-list ul');
 
-    items.forEach((item) => {
-        item.addEventListener('click', () => {
-            if (!item.classList.contains('completed')) {
-                item.classList.add('completed');
-                item.querySelector('i').classList.add('completed');
-            }
+  for (let i = 0; i < groceries.length; i++) {
+    const listItem = document.createElement('li');
+    listItem.innerText = groceries[i].name;
+    list.insertAdjacentElement('beforeend', listItem);
+  }
+
+}
+//setPageTitle();
+//displayGroceries();
+document.addEventListener('DOMContentLoaded', (event) =>{
+    setPageTitle();
+    displayGroceries();
+    const items = document.querySelectorAll('li');
+
+      items.forEach((item) => {
+          item.addEventListener('click', () => {
+              if (!item.classList.contains('completed')) {
+                  item.classList.add('completed');
+                  item.querySelector('i').classList.add('completed');
+              }
+          });
+        
+        item.addEventListener('dblclick', () => {
+          if(item.classList.contains('completed')) {
+            item.classList.remove('completed');
+            item.querySelector('i').classList.remove('completed')
+          }
         });
-      
-      item.addEventListener('dblclick', () => {
-        if(item.classList.contains('completed')) {
-          item.classList.remove('completed');
-          item.querySelector('i').classList.remove('completed')
-        }
       });
-    });
-    
-  const completeAll = document.getElementById('btnCompleteAll');
-  completeAll.addEventListener('click', () => {
-    items.forEach((item) => {
-      item.classList.add('completed');
-      item.querySelector('i').classList.add('completed');
+      
+    const completeAll = document.getElementById('toggleAll');
+    completeAll.addEventListener('click', (event) => {
+      for (let i = 0; i < items.length; i++) {
+        items[i].completed = true;
+        items[i].classList.add('completed');
+        items[i].querySelector('i').classList.add('completed');
+      
+        allItemsIncomplete = false;
+        
+    }
+    completeAll.innerText = "Mark All Incomplete";
     });
   });
-});
