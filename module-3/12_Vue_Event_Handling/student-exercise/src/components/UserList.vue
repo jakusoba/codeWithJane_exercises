@@ -15,7 +15,9 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" />
+            <input type="checkbox" id="selectAll" 
+              v-on:change="toggleAllUsers($event)"
+              v-bind:checked="selectedUserIDs.length === users.length"/>
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -44,7 +46,9 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id"
+              v-on:change="selectUser($event)" 
+              v-bind:checked="selectedUserIDs.includes(user.id)"/><!--this dollar sign represent objects built into Vue.-->
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,18 +56,23 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">
-              {{user.status === 'Active' ? Disable : Enable}}
+            <button class="btnEnableDisable"
+              v-on:click.prevent="flipStatus(user.id)">
+              {{user.status === 'Active' ? 'Disable' : 'Enable'}}
             </button>
           </td>
         </tr>
       </tbody>
     </table>
 
-    <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+    <div class="all-actions"> <!--buttons have a property called disabled.-->
+      <button v-bind:disabled="actionButtonDisabled"
+      v-on:click.prevent="enableSelectedUsers">Enable Users</button>
+
+      <button v-bind:disabled="actionButtonDisabled"
+      v-on:click.prevent="disableSelectedUsers">Disable Users</button>
+      <button v-bind:disabled="actionButtonDisabled"
+      v-on:click.prevent="deleteSelectedUsers">Delete Users</button>
     </div>
 
     <button
@@ -96,6 +105,7 @@ export default {
   name: "user-list",
   data() {
     return {
+      selectedUserIDs: [],
       showForm: false, //Property
       filter: {
         firstName: "",
@@ -165,12 +175,54 @@ export default {
     };
   },
   methods: {
+    enableSelectedUsers(){
+      this.selectedUserIDs.forEach((id =>{
+        const i = this.users.findIndex(user => user.id == id);
+        this.users[i].status = 'Active';
+      }));
+      this.selectedUserIDs = [];
+
+    },
+    disableSelectedUsers(){
+       this.selectedUserIDs.forEach((id => {
+        //For each id in the selecteduser array, find the index of the user where the users.id is equal to the id passed.
+        const i = this.users.findIndex(user => user.id == id);
+        this.users[i].status = 'Disabled';
+      }));
+    },
+    deleteSelectedUsers(){
+      //Array.filter returns a new array after looping through the old array. It returns true when you want to put the item in the new array and false when you don't.
+      this.users = this.users.filter(user => {
+       return !(this.selectedUserIDs.includes(user.id)); 
+      })
+      this.selectedUserIDs = [];
+    },
+    toggleAllUsers(event){
+      this.selectedUserIDs = [];
+      if(event.target.checked){
+        this.users.forEach(user => {
+          this.selectedUserIDs.push(user.id);
+        });
+      }
+
+    },
+    selectUser(event){
+      if(event.target.checked){
+        this.selectedUserIDs.unshift(parseInt(event.target.id));
+      }
+      else{
+        this.selectedUserIDs = this.selectedUserIDs.filter(id => {
+          return id != parseInt(event.target.id);
+        })
+      }
+
+    },
     flipStatus(id){
       const userIndex = this.users.findIndex(user => user.id == id);
-      if(this.users[userIndex] === "Active"){
-        this.users[userIndex].status === "Disabled";
+      if(this.users[userIndex].status == "Active"){
+        this.users[userIndex].status = "Disabled";
       }else{
-        this.users[userIndex]
+        this.users[userIndex].status = "Active";
       }
       
     },
@@ -189,6 +241,9 @@ export default {
     }
   },
   computed: {
+    actionButtonDisabled(){
+      return this.selectedUserIDs.length === 0;
+    },
     filteredList() {
       let filteredUsers = this.users;
       if (this.filter.firstName != "") {
