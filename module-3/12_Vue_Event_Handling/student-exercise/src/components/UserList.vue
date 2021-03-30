@@ -52,7 +52,9 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable">
+              {{user.status === 'Active' ? Disable : Enable}}
+            </button>
           </td>
         </tr>
       </tbody>
@@ -64,24 +66,25 @@
       <button>Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button
+    v-on:click.prevent="showForm=true">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showForm"> <!--Attach boolean property to the form -->
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model="newUser.firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model="newUser.lastName" />
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model="newUser.username" />
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model="newUser.emailAddress" />
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -93,6 +96,7 @@ export default {
   name: "user-list",
   data() {
     return {
+      showForm: false, //Property
       filter: {
         firstName: "",
         lastName: "",
@@ -102,7 +106,7 @@ export default {
       },
       newUser: {
         id: null,
-        firstName: "",
+        firstName: "", //Using v-model we bind the form fields to the newUser objects
         lastName: "",
         username: "",
         emailAddress: "",
@@ -160,7 +164,30 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    flipStatus(id){
+      const userIndex = this.users.findIndex(user => user.id == id);
+      if(this.users[userIndex] === "Active"){
+        this.users[userIndex].status === "Disabled";
+      }else{
+        this.users[userIndex]
+      }
+      
+    },
+    saveUser(){ //method to save added new user
+      this.users.push(this.newUser);
+      this.newUser={
+        id: null,
+        firstName: "", //Using v-model we bind the form fields to the newUser objects
+        lastName: "",
+        username: "",
+        emailAddress: "",
+        status: "Active"
+      }
+      this.showForm = false;
+
+    }
+  },
   computed: {
     filteredList() {
       let filteredUsers = this.users;
