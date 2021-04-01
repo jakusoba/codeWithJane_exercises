@@ -1,6 +1,12 @@
 <template>
   <div id="app">
+    <nav>
+      <router-link v-bind:to="{ name: 'home' }">Home</router-link>&nbsp;|&nbsp;
+          <router-link v-bind:to="{ name: 'myBooks' }">My Books</router-link>&nbsp;|&nbsp;
+         
+    </nav>
     <router-view />
+    
   </div>
 </template>
 
