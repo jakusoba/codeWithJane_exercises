@@ -8,6 +8,10 @@ export default {
 
   get(id) {
     return http.get(`/messages/${id}`);
+  },
+  addMessage(message){
+    return axios.post('/messages', message)
   }
+
 
 }

@@ -12,6 +12,15 @@ export default {
 
   get(id) {
     return http.get(`/topics/${id}`);
+  },
+  addTopic(topic){
+    return axios.post('/topics', topic)
+  },
+  updateTopic(id, topic){
+    return axios.post(`/topics/:id`, id, topic)
+
   }
+
+  
 
 }

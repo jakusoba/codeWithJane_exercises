@@ -24,7 +24,33 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    /**updateTopic(){
+      topicService.updateTopic(this.topic).then(response => {
+        console.log(response.status);
+        if(response.status == '201') {
+          console.log(response.status + ' 2');
+          this.$router.push('/');
+        }
+
+      })
+      .catch(error => {
+        console.log(error);
+
+      })
+
+    },**/
+    saveTopic() {
+      topicService.addTopic(this.topic).then(response => {
+        console.log(response.status);
+        if(response == '201') {
+          console.log(response.status + ' 2');
+          this.$router.push('/');
+        }
+      })
+      .catch(error => {
+        console.log(error);
+      })
+    }
   }
 };
 </script>
